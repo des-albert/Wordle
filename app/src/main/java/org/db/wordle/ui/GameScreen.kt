@@ -1,5 +1,6 @@
 package org.db.wordle.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,9 +11,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import org.db.wordle.R
 import org.db.wordle.backend.models.Level
 import org.db.wordle.backend.viewmodel.GameViewModel
+
 
 @Composable
 fun GameScreen(
@@ -30,6 +35,13 @@ fun GameScreen(
       .fillMaxSize()
       .padding(horizontal = 8.dp, vertical = 16.dp)
   ) {
+    Image(
+      painter = painterResource(id = R.drawable.izzy),
+      contentDescription = null,
+      modifier = Modifier.fillMaxSize(),
+      alpha = 0.60f,
+      contentScale = ContentScale.Crop
+    )
     Column(Modifier.padding(bottom = 8.dp)) {
 
       GameHeader(level)
@@ -42,7 +54,7 @@ fun GameScreen(
           .fillMaxWidth(0.6f)
           .align(CenterHorizontally)
       )
-      Spacer(modifier = Modifier.size(16.dp))
+      Spacer(modifier = Modifier.size(8.dp))
       GameKeyboard(
         state,
         onKey = onKey,

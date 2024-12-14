@@ -123,7 +123,7 @@ internal fun BasicLetterBox(
       .aspectRatio(1f)
       .clip(RoundedCornerShape(2.dp))
       .then(borderModifier)
-      .background(animateColorAsState(targetValue = color, label = "").value),
+      .background(animateColorAsState(targetValue = color.copy(alpha = 0.4f), label = "").value),
     contentAlignment = Alignment.Center) {
     AnimatedVisibility(letter != null) {
       Text(letter?.uppercase() ?: "",
