@@ -1,5 +1,6 @@
 package org.db.wordle.ui
 
+import android.media.MediaPlayer
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,15 +20,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.db.wordle.backend.models.EqualityStatus
 import org.db.wordle.backend.models.KeyboardKeys.Key
 import org.db.wordle.backend.viewmodel.GameViewModel
+import org.db.wordle.R
 
 @Composable
 internal fun GameKeyboard(
@@ -118,7 +122,8 @@ private fun KeyboardKey(
   status: EqualityStatus? = null,
   onClick: () -> Unit
 ) {
-
+  val context = LocalContext.current
+  val mediaPlayer = remember { MediaPlayer.create(context, R.raw.click) }
   val color by animateColorAsState(
     targetValue = when (status) {
       EqualityStatus.Incorrect -> MaterialTheme.colorScheme.onTertiary
@@ -138,6 +143,7 @@ private fun KeyboardKey(
       .background(color)
       .clip(RoundedCornerShape(2.dp))
       .clickable(onClick = {
+        mediaPlayer.start()
         onClick()
       })
     ,
