@@ -25,5 +25,5 @@ class AssetFileWordRepository(
   }
 
   override val lastLevel: Long
-    get() = 1024
+    get() = 2315
 }
