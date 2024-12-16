@@ -63,7 +63,7 @@ fun GameScreen(
       )
     }
     ErrorScreen(state, shownError)
-    WonScreen(state, shownWon)
+    WonScreen(state, level, shownWon)
     GameOverScreen(state, shownLost)
   }
 }

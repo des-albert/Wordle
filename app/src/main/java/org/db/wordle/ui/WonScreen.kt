@@ -19,11 +19,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.db.wordle.backend.models.Level
 import org.db.wordle.backend.viewmodel.GameViewModel
 
 @Composable
 internal fun WonScreen(
   state: GameViewModel.State,
+  level: Level,
   shownWon: () -> Unit,
 ) {
 
@@ -44,7 +46,7 @@ internal fun WonScreen(
       .background(MaterialTheme.colorScheme.primary),
       Alignment.Center) {
       Text(
-        text = "LEVEL PASSED!",
+        text = "Level ${level.number} complete",
         color = MaterialTheme.colorScheme.onBackground,
         modifier = Modifier.padding(32.dp),
         style = MaterialTheme.typography.headlineMedium,
