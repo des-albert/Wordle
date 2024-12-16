@@ -78,9 +78,7 @@ internal fun GameGrid(
             )
           }
         }
-
       }
-
     }
   }
 }

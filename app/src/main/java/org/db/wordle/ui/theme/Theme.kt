@@ -23,7 +23,8 @@ private val LightColors = darkColorScheme(
   onSurface = incorrectBackground,
   onSecondary = keyboard,
   onTertiary = keyboardDisabled,
-  secondaryContainer = onKeyboard
+  secondaryContainer = onKeyboard,
+  primaryContainer = wonScreen
 
 )
 private val DarkColors = lightColorScheme(
@@ -38,7 +39,8 @@ private val DarkColors = lightColorScheme(
   onSurface = incorrectBackground,
   onSecondary = keyboard,
   onTertiary = keyboardDisabled,
-  secondaryContainer = onKeyboard
+  secondaryContainer = onKeyboard,
+  primaryContainer = wonScreen
 
 
   /* Other default colors to override

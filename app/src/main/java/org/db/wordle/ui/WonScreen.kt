@@ -34,7 +34,7 @@ internal fun WonScreen(
 
     Box(Modifier
       .fillMaxSize()
-      .background(MaterialTheme.colorScheme.tertiary)
+      .background(MaterialTheme.colorScheme.primaryContainer)
       .clickable {
         shownWon()
       }
